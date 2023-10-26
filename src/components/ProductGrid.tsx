@@ -64,7 +64,7 @@ export function ProductGrid({ searchParams }: Props) {
               blurDataURL={`data:image/svg+xml;base64, ${toBase64(
                 shimmer(225, 280)
               )}`}
-              src={urlForImage(product.image).url()}
+              src={product.image}
               alt={product.name}
               width={225}
               height={280}
