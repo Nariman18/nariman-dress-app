@@ -25,9 +25,6 @@ export default function RootLayout({
       <body className="">
         <Providers>
           <div className="relative flex flex-col min-h-screen">
-            <div className="lg:absolute hidden top-52 left-[400px] w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob transition-all ease-in-out"></div>
-            <div className="lg:absolute hidden  top-52 left-[620px] w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000 transition-all ease-in-out"></div>
-            <div className="lg:absolute hidden top-60 left-[510px] w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000 transition-all ease-in-out"></div>
             <Header />
             <SiteBlob />
             <div>{children}</div>

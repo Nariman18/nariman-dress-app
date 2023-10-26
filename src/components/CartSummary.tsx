@@ -28,10 +28,8 @@ export function CartSummary() {
       body: JSON.stringify(cartDetails),
     });
     const data = await response.json();
-    const result = redirectToCheckout(data.id);
-    if (result) {
-      console.log(result);
-    } else {
+    const result: any = redirectToCheckout(data.id);
+    if (result?.error) {
       console.error(result);
     }
     setLoading(false);
