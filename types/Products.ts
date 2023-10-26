@@ -4,7 +4,7 @@ export type Product = {
   _created_at: Date;
   title: string;
   name: string;
-  image: Image;
+  image: string;
   images: Image[];
   slug: string;
   categories: string[];
