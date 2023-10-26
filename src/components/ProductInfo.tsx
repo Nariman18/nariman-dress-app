@@ -85,7 +85,7 @@ export function ProductInfo({ products, slug }: Props) {
             onClick={() => setSelectedSize(size)}
             key={size}
             className="mr-2 mt-4"
-            variant={selectedSize === size ? "default" : "outlined"}
+            variant={selectedSize === size ? "default" : "outline"}
           >
             {getSizeName(size)}
           </Button>
