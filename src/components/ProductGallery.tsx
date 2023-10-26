@@ -34,7 +34,7 @@ export function ProductGallery({ slug }: Props) {
         <ul className="grid grid-cols-4 gap-6">
           {pageData.images.map((image, index) => (
             <div
-              key={image._key as string}
+              key={index}
               onClick={() => setSelectedImage(index)}
               className="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase hover:bg-gray-50"
             >
@@ -44,7 +44,7 @@ export function ProductGallery({ slug }: Props) {
                   blurDataURL={`data:image/svg+xml;base64, ${toBase64(
                     shimmer(200, 200)
                   )}`}
-                  src={urlForImage(image).url()}
+                  src={image}
                   width={200}
                   height={200}
                   alt={pageData.name}
@@ -70,7 +70,7 @@ export function ProductGallery({ slug }: Props) {
             shimmer(600, 750)
           )}`}
           priority
-          src={urlForImage(pageData.images[selectedImage]).url()}
+          src={pageData.images[selectedImage]}
           alt={`Main ${pageData.name} image`}
           width={600}
           height={750}

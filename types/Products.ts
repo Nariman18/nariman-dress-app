@@ -5,7 +5,7 @@ export type Product = {
   title: string;
   name: string;
   image: string;
-  images: Image[];
+  images: string[];
   slug: string;
   categories: string[];
   sizes: string[];
