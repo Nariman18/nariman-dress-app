@@ -1,4 +1,5 @@
 import { CartItems } from "@/components/CartItems";
+import { CartSummary } from "@/components/CartSummary";
 //import { CartSummary } from "@/components/CartSummary";
 
 export default function Page() {
@@ -18,7 +19,7 @@ export default function Page() {
             <CartItems />
           </section>
           {/* Cart Summary */}
-          {/*<CartSummary />*/}
+          <CartSummary />
         </form>
       </main>
     </div>
