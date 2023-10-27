@@ -5,7 +5,7 @@ import { client } from "./lib/client";
 
 export async function getProducts(): Promise<Product[]> {
   const query = groq`
-  *[_type == "product"] {
+  *[_type == "product"][0...10] {
           _id,
           _created_at,
           colors,
