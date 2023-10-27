@@ -11,12 +11,11 @@ interface Props {
 
 export default async function Page({ searchParams }: Props) {
   const sessionId = searchParams?.session_id ?? "";
-  const checkoutSession = await stripe.checkout.sessions.retrieve(sessionId);
-  const customerDetails = checkoutSession.customer_details;
 
   return (
     <main className="grid min-h-full place-items-center px-6 py-24 sm:py-32 lg:px-8">
       <div className="text-center">
+        <CheckoutSession sessionId={sessionId} />
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <Link
             href="/"
@@ -24,7 +23,7 @@ export default async function Page({ searchParams }: Props) {
           >
             Go back home
           </Link>
-          <Link href="/" className="text-sm font-semibold">
+          <Link href="#" className="text-sm font-semibold">
             Contact support <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>

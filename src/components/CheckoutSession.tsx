@@ -1,17 +1,33 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { CheckCheck, XCircle } from "lucide-react";
 import Stripe from "stripe";
 import { useShoppingCart } from "use-shopping-cart";
 
 interface Props {
-  customerDetails: Stripe.Checkout.Session.CustomerDetails | null;
+  sessionId: string;
 }
 
-export function CheckoutSession({ customerDetails }: Props) {
-  const cart = useShoppingCart();
-  console.log(cart);
+export function CheckoutSession({ sessionId }: Props) {
+  const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY!, {
+    apiVersion: "2023-10-16",
+  });
+  const [customerDetails, setCustomerDetails] =
+    useState<Stripe.Checkout.Session.CustomerDetails | null>(null);
+
+  useEffect(() => {
+    async function fetchCheckoutSession() {
+      const checkoutSession = await stripe.checkout.sessions.retrieve(
+        sessionId
+      );
+      setCustomerDetails(checkoutSession.customer_details);
+    }
+
+    if (sessionId) {
+      fetchCheckoutSession();
+    }
+  }, [sessionId]);
 
   if (!customerDetails) {
     return (
