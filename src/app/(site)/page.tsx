@@ -54,7 +54,6 @@ export default async function Home({ searchParams }: Props) {
             >
               <div className="hidden lg:block">{/* Product filters */}</div>
               {/* Product grid */}
-              <ProductGrid searchParams={searchParams} />
             </div>
           </section>
         </main>
