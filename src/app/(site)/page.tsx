@@ -38,7 +38,6 @@ export default async function Home({ searchParams }: Props) {
               {products.length} product{products.length === 1 ? "" : "s"}
             </h1>
             {/* Product Sort */}
-            {products && <ProductSort />}
           </div>
 
           <section aria-labelledby="products-heading" className="pb-24 pt-6">
@@ -53,12 +52,8 @@ export default async function Home({ searchParams }: Props) {
                   : "lg:grid-cols-[1fr_3fr]"
               )}
             >
-              <div className="hidden lg:block">
-                {/* Product filters */}
-                {products && <ProductFilters />}
-              </div>
+              <div className="hidden lg:block">{/* Product filters */}</div>
               {/* Product grid */}
-              {products && <ProductGrid searchParams={searchParams} />}
             </div>
           </section>
         </main>
