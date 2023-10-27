@@ -1,7 +1,3 @@
-import { groq } from "next-sanity";
-
-import { Product } from "../../../../../types/Products";
-import { client } from "../../../../../sanity/lib/client";
 import { ProductInfo } from "@/components/ProductInfo";
 import { ProductGallery } from "@/components/ProductGallery";
 import { getProduct } from "../../../../../sanity/sanity-utils";
