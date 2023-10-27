@@ -3,7 +3,7 @@ import { groq } from "next-sanity";
 import { Product } from "../types/Products";
 import { client } from "./lib/client";
 
-export async function getProducts(searchParams: {}): Promise<Product[]> {
+export async function getProducts(): Promise<Product[]> {
   const query = groq`
   *[_type == "product"] {
           _id,
