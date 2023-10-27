@@ -2,8 +2,8 @@ import Providers from "@/components/Providers";
 import "../globals.css";
 
 export const metadata = {
-  title: "Dress's Dashboard",
-  description: "Dashboard",
+  title: "Successful payment",
+  description: "Success payment order information",
 };
 
 export default function RootLayout({
