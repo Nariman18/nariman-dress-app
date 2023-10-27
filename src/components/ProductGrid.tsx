@@ -12,31 +12,10 @@ import { useEffect, useState } from "react";
 import { getProducts } from "../../sanity/sanity-utils";
 
 interface Props {
-  searchParams: {
-    date?: string;
-    price?: string;
-    color?: string;
-    category?: string;
-    size?: string;
-    search?: string;
-  };
+  products: Product[];
 }
 
-export function ProductGrid({ searchParams }: Props) {
-  const [products, setProducts] = useState<Product[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const productData = await getProducts(searchParams);
-      const sortProductPage = productData.sort(
-        (b, a) =>
-          new Date(b._created_at).getTime() - new Date(a._created_at).getTime()
-      );
-      setProducts(sortProductPage);
-    };
-    fetchData();
-  }, [searchParams]);
-
+export function ProductGrid({ products }: Props) {
   if (products.length === 0) {
     return (
       <div className="mx-auto grid h-40 w-full place-items-center rounded-md border-2 border-gray-800 bg-gray-50 py-10 text-center dark:bg-gray-900">

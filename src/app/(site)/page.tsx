@@ -58,7 +58,7 @@ export default async function Home({ searchParams }: Props) {
                 <ProductFilters />
               </div>
               {/* Product grid */}
-              <ProductGrid searchParams={searchParams} />
+              <ProductGrid products={products} />
             </div>
           </section>
         </main>
