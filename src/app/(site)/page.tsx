@@ -42,10 +42,7 @@ export default async function Home() {
                   : "lg:grid-cols-[1fr_3fr]"
               )}
             >
-              <div className="hidden lg:block">
-                {/* Product filters */}
-                <ProductFilters />
-              </div>
+              <div className="hidden lg:block">{/* Product filters */}</div>
               {/* Product grid */}
               <ProductGrid />
             </div>
