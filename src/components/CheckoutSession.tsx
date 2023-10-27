@@ -32,9 +32,8 @@ export function CheckoutSession({ sessionId }: Props) {
   if (!customerDetails) {
     return (
       <>
-        <XCircle className="mx-auto h-10 w-10 text-red-400" />
         <h1 className="mt-4 text-3xl font-bold tracking-tight text-red-400 sm:text-5xl">
-          No checkout session found
+          Loading...
         </h1>
       </>
     );
