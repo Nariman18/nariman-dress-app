@@ -68,8 +68,7 @@ export function CartSummary() {
       <div className="mt-6">
         <Button onClick={onCheckout} className="w-full" disabled={isDesabled}>
           {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-          {isLoading ? "Loading..." : ""}
-          Chekout
+          {isLoading ? "Loading..." : "CHECKOUT"}
         </Button>
       </div>
     </section>
