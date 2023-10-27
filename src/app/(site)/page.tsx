@@ -4,11 +4,24 @@ import { siteConfig } from "../../../config/site";
 import { ProductFilters } from "@/components/ProductFilters";
 import { cn } from "@/lib/utils";
 import { ProductGrid } from "@/components/ProductGrid";
-
+import { Product } from "../../../types/Products";
+import { client } from "../../../sanity/lib/client";
+import { groq } from "next-sanity";
 import { getProducts } from "../../../sanity/sanity-utils";
 
-export default async function Home() {
-  const products = await getProducts();
+interface Props {
+  searchParams: {
+    date?: string;
+    price?: string;
+    color?: string;
+    category?: string;
+    size?: string;
+    search?: string;
+  };
+}
+
+export default async function Home({ searchParams }: Props) {
+  const products = await getProducts(searchParams);
 
   return (
     <div>
@@ -42,9 +55,12 @@ export default async function Home() {
                   : "lg:grid-cols-[1fr_3fr]"
               )}
             >
-              <div className="hidden lg:block">{/* Product filters */}</div>
+              <div className="hidden lg:block">
+                {/* Product filters */}
+                <ProductFilters />
+              </div>
               {/* Product grid */}
-              <ProductGrid />
+              <ProductGrid searchParams={searchParams} />
             </div>
           </section>
         </main>
