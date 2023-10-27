@@ -7,19 +7,8 @@ import { ProductGrid } from "@/components/ProductGrid";
 
 import { getProducts } from "../../../sanity/sanity-utils";
 
-interface Props {
-  searchParams: {
-    date?: string;
-    price?: string;
-    color?: string;
-    category?: string;
-    size?: string;
-    search?: string;
-  };
-}
-
-export default async function Home({ searchParams }: Props) {
-  const products = await getProducts(searchParams);
+export default async function Home() {
+  const products = await getProducts();
 
   return (
     <div>
@@ -58,7 +47,7 @@ export default async function Home({ searchParams }: Props) {
                 <ProductFilters />
               </div>
               {/* Product grid */}
-              <ProductGrid searchParams={searchParams} />
+              <ProductGrid />
             </div>
           </section>
         </main>
