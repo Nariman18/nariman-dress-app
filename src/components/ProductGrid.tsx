@@ -7,7 +7,6 @@ import { XCircle } from "lucide-react";
 import { formatCurrencyString } from "use-shopping-cart";
 import { Product } from "../../types/Products";
 import { shimmer, toBase64 } from "@/lib/image";
-import { urlForImage } from "../../sanity/lib/image";
 import { useEffect, useState } from "react";
 import { getProducts } from "../../sanity/sanity-utils";
 
