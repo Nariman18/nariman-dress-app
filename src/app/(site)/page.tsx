@@ -1,7 +1,5 @@
-import { ProductSort } from "@/components/ProductSort";
 import { siteConfig } from "../../../config/site";
 
-import { ProductFilters } from "@/components/ProductFilters";
 import { cn } from "@/lib/utils";
 import { Product } from "../../../types/Products";
 import { client } from "../../../sanity/lib/client";
@@ -39,7 +37,6 @@ export default async function Home({ searchParams }: Props) {
               {products.length} product{products.length === 1 ? "" : "s"}
             </h1>
             {/* Product Sort */}
-            <ProductSort />
           </div>
 
           <section aria-labelledby="products-heading" className="pb-24 pt-6">
@@ -54,10 +51,7 @@ export default async function Home({ searchParams }: Props) {
                   : "lg:grid-cols-[1fr_3fr]"
               )}
             >
-              <div className="hidden lg:block">
-                {/* Product filters */}
-                <ProductFilters />
-              </div>
+              <div className="hidden lg:block">{/* Product filters */}</div>
               {/* Product grid */}
             </div>
           </section>
