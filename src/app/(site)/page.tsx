@@ -1,4 +1,3 @@
-import { ProductSort } from "@/components/ProductSort";
 import { siteConfig } from "../../../config/site";
 
 import { cn } from "@/lib/utils";
@@ -39,7 +38,6 @@ export default async function Home({ searchParams }: Props) {
               {products.length} product{products.length === 1 ? "" : "s"}
             </h1>
             {/* Product Sort */}
-            <ProductSort />
           </div>
 
           <section aria-labelledby="products-heading" className="pb-24 pt-6">
