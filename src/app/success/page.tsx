@@ -17,7 +17,6 @@ export default async function Page({ searchParams }: Props) {
   return (
     <main className="grid min-h-full place-items-center px-6 py-24 sm:py-32 lg:px-8">
       <div className="text-center">
-        <CheckoutSession customerDetails={customerDetails} />
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <Link
             href="/"
