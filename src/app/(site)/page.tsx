@@ -1,6 +1,7 @@
 import { ProductSort } from "@/components/ProductSort";
 import { siteConfig } from "../../../config/site";
 
+import { ProductFilters } from "@/components/ProductFilters";
 import { cn } from "@/lib/utils";
 import { ProductGrid } from "@/components/ProductGrid";
 import { Product } from "../../../types/Products";
@@ -54,8 +55,12 @@ export default async function Home({ searchParams }: Props) {
                   : "lg:grid-cols-[1fr_3fr]"
               )}
             >
-              <div className="hidden lg:block">{/* Product filters */}</div>
+              <div className="hidden lg:block">
+                {/* Product filters */}
+                <ProductFilters />
+              </div>
               {/* Product grid */}
+              <ProductGrid searchParams={searchParams} />
             </div>
           </section>
         </main>
