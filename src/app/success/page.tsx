@@ -3,7 +3,7 @@ import Link from "next/link";
 import { stripe } from "@/lib/stripe";
 import { CheckoutSession } from "@/components/CheckoutSession";
 
-export default async function Page({ searchParams }: Props) {
+export default async function Page() {
   return (
     <main className="grid min-h-full place-items-center px-6 py-24 sm:py-32 lg:px-8">
       <div className="text-center">
