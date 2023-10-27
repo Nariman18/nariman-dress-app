@@ -14,7 +14,7 @@ export async function getProducts(searchParams: {
   const { date, price, color, category, size, search } = searchParams;
 
   const priceOrder = price ? `| order(price ${searchParams.price})` : "";
-  const dateOrder = date ? `| order(_createdAt ${searchParams.date})` : "";
+  const dateOrder = date ? `| order(_created_at ${searchParams.date})` : "";
   const order = `${priceOrder} ${dateOrder}`;
 
   const productFilter = `_type == "product"`;
@@ -36,11 +36,11 @@ export async function getProducts(searchParams: {
   const searchFilter = searchWords.length > 0 ? `&& ${searchFilters}` : "";
   const filter = `*[${productFilter}${colorFilter}${categoryFilter}${sizeFilter}${searchFilter}]`;
 
-  return await client.fetch<Product[]>(
-    groq`
+  try {
+    const query = groq`
     ${filter}${order} {
             _id,
-            _createdAt,
+            _created_at,
             colors,
             categories,
             name,
@@ -52,8 +52,14 @@ export async function getProducts(searchParams: {
             title,
             "slug": slug.current
         }
-    `
-  );
+    `;
+    console.log("Executing GROQ Query:", query); // Optional: log the query
+    const products = await client.fetch<Product[]>(query);
+    return products;
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    throw error; // Re-throwing the error if you want to handle it further up the chain
+  }
 }
 
 export async function getProduct(slug: string): Promise<Product> {
