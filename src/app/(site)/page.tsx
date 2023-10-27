@@ -5,6 +5,7 @@ import { Product } from "../../../types/Products";
 import { client } from "../../../sanity/lib/client";
 import { groq } from "next-sanity";
 import { getProducts } from "../../../sanity/sanity-utils";
+import { ProductFilters } from "@/components/ProductFilters";
 
 interface Props {
   searchParams: {
@@ -51,7 +52,10 @@ export default async function Home({ searchParams }: Props) {
                   : "lg:grid-cols-[1fr_3fr]"
               )}
             >
-              <div className="hidden lg:block">{/* Product filters */}</div>
+              <div className="hidden lg:block">
+                {/* Product filters */}
+                <ProductFilters />
+              </div>
               {/* Product grid */}
             </div>
           </section>
