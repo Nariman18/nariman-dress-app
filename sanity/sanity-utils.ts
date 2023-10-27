@@ -40,7 +40,7 @@ export async function getProducts(searchParams: {
     groq`
     ${filter}${order} {
             _id,
-            _createdAt,
+            _created_at,
             colors,
             categories,
             name,
