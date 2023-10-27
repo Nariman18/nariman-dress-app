@@ -53,7 +53,11 @@ export function ProductGrid({ searchParams }: Props) {
   return (
     <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-3 lg:col-span-3 lg:gap-x-8">
       {products.map((product) => (
-        <Link key={product._id} href={`/products`} className="group text-sm">
+        <Link
+          key={product._id}
+          href={`/products/${product.slug}`}
+          className="group text-sm"
+        >
           <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg border-2 border-gray-200 bg-gray-100 group-hover:opacity-75 dark:border-gray-800">
             <Image
               placeholder="blur"

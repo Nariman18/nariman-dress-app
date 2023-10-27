@@ -4,9 +4,6 @@ import { siteConfig } from "../../../config/site";
 import { ProductFilters } from "@/components/ProductFilters";
 import { cn } from "@/lib/utils";
 import { ProductGrid } from "@/components/ProductGrid";
-import { Product } from "../../../types/Products";
-import { client } from "../../../sanity/lib/client";
-import { groq } from "next-sanity";
 import { getProducts } from "../../../sanity/sanity-utils";
 
 interface Props {
