@@ -16,11 +16,18 @@ export function ProductGallery({ slug }: Props) {
   const [pageData, setPageData] = useState<Product | null>(null);
 
   useEffect(() => {
+    let isMounted = true;
     const fetchData = async () => {
       const data = await getProduct(slug);
-      setPageData(data);
+      if (isMounted) {
+        setPageData(data);
+      }
     };
     fetchData();
+
+    return () => {
+      isMounted = false;
+    };
   }, [slug]);
 
   if (!pageData) {

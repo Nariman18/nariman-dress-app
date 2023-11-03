@@ -25,15 +25,22 @@ export function ProductGrid({ searchParams }: Props) {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
+    let isMounted = true;
     const fetchData = async () => {
       const productData = await getProducts(searchParams);
       const sortProductPage = productData.sort(
         (b, a) =>
           new Date(b._created_at).getTime() - new Date(a._created_at).getTime()
       );
-      setProducts(sortProductPage);
+      if (isMounted) {
+        setProducts(sortProductPage);
+      }
     };
     fetchData();
+
+    return () => {
+      isMounted = false;
+    };
   }, [searchParams]);
 
   if (products.length === 0) {
