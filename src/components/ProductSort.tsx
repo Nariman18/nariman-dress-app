@@ -1,8 +1,8 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Filter } from "lucide-react";
-
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -19,6 +19,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { ProductFilters } from "./ProductFilters";
+import { useState } from "react";
 
 const sortOptions = [
   { name: "Newest", value: "/?date=desc" },
@@ -27,7 +28,20 @@ const sortOptions = [
 ];
 
 export function ProductSort() {
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const defaultSearchQuery = searchParams.get("search") ?? "";
+
+  function onSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const searchQuery = formData.get("search");
+    router.replace(`/?search=${searchQuery}`);
+
+    setIsSheetOpen(false);
+  }
 
   return (
     <div className="flex items-center">
@@ -44,9 +58,20 @@ export function ProductSort() {
         </SelectContent>
       </Select>
 
-      <Sheet>
+      <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
         <SheetContent className="w-[300px]">
-          <SheetHeader>
+          <form onSubmit={onSubmit}>
+            <Input
+              id="search"
+              name="search"
+              type="search"
+              autoComplete="off"
+              placeholder="Search products..."
+              className="h-9 lg:w-[300px] mt-7"
+              defaultValue={defaultSearchQuery}
+            />
+          </form>
+          <SheetHeader className="mt-6">
             <SheetTitle>Categories</SheetTitle>
             <SheetDescription>
               Narrow your product search using the options below.
