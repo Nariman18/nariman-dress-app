@@ -15,7 +15,7 @@ export async function getProducts(searchParams: {
 
   const priceOrder = price ? `| order(price ${searchParams.price})` : "";
   const dateOrder = date ? `| order(_createdAt ${searchParams.date})` : "";
-  const order = `${priceOrder} ${dateOrder}`;
+  const order = priceOrder || dateOrder ? `${priceOrder} ${dateOrder}` : "";
 
   const productFilter = `_type == "product"`;
   const colorFilter = color ? `&& "${color}" in colors` : "";
@@ -23,17 +23,14 @@ export async function getProducts(searchParams: {
   const sizeFilter = size ? `&& "${size}" in sizes` : "";
 
   const searchWords = search ? search.split(" ") : [];
-  const searchFilters = searchWords
-    .map((word) => {
-      return `(
-      colors match "${word}" ||
-      categories match "${word}" ||
-      name match "${word}"
-    )`;
-    })
-    .join(" && ");
-
-  const searchFilter = searchWords.length > 0 ? `&& ${searchFilters}` : "";
+  const searchFilters = searchWords.length
+    ? searchWords
+        .map((word) => {
+          return `(colors match "${word}" || categories match "${word}" || name match "${word}")`;
+        })
+        .join(" && ")
+    : "";
+  const searchFilter = searchFilters ? `&& ${searchFilters}` : "";
   const filter = `*[${productFilter}${colorFilter}${categoryFilter}${sizeFilter}${searchFilter}]`;
 
   return await client.fetch<Product[]>(

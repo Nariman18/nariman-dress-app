@@ -1,6 +1,6 @@
 import "../globals.css";
 import type { Metadata } from "next";
-import { siteConfig } from "../../../config/site";
+import { siteConfiq } from "../../../config/site";
 import Providers from "@/components/Providers";
 
 import { Header } from "@/components/Header";
@@ -8,8 +8,8 @@ import { SiteBlob } from "@/components/site-blob";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: siteConfig.name,
-  description: siteConfig.description,
+  title: siteConfiq.name,
+  description: siteConfiq.description,
   icons: {
     icon: "/icons8-shop-local-32.png",
   },

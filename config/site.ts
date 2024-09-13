@@ -1,6 +1,6 @@
-export type SiteConfig = typeof siteConfig;
+export type SiteConfiq = typeof siteConfiq;
 
-export const siteConfig = {
+export const siteConfiq = {
   name: "Nariman's Dress Store",
   description: "Goods for workspace, home and travel",
   footer: [

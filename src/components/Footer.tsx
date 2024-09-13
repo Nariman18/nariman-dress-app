@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { siteConfig } from "../../config/site";
+import { siteConfiq } from "../../config/site";
 
 export function Footer() {
   return (
@@ -9,7 +9,7 @@ export function Footer() {
           className="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12"
           aria-label="Footer"
         >
-          {siteConfig.footer.map((item) => (
+          {siteConfiq.footer.map((item) => (
             <div key={item.name} className="pb-6">
               <Link href={item.href} className="text-sm leading-6">
                 {item.name}
@@ -18,7 +18,7 @@ export function Footer() {
           ))}
         </nav>
         <Link href="" className="mt-10 block text-center text-xs leading-5">
-          &copy; {new Date().getFullYear()} {siteConfig.name} LLC. All rights
+          &copy; {new Date().getFullYear()} {siteConfiq.name} LLC. All rights
           reserved.
         </Link>
       </div>

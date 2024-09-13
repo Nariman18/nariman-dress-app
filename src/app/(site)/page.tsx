@@ -1,11 +1,5 @@
 import { ProductSort } from "@/components/ProductSort";
-import { siteConfig } from "../../../config/site";
-
-import { ProductFilters } from "@/components/ProductFilters";
-import { cn } from "@/lib/utils";
-import { ProductGrid } from "@/components/ProductGrid";
-
-import { getProducts } from "../../../sanity/sanity-utils";
+import { siteConfiq } from "../../../config/site";
 import { ProductLength } from "@/components/ProductLength";
 import { ProductGridFilter } from "@/components/ProdcutGridFilter";
 
@@ -25,10 +19,10 @@ export default async function Home({ searchParams }: Props) {
     <div>
       <div className="px-4 pt-20 text-center">
         <h1 className="text-4xl font-extrabold tracking-normal">
-          {siteConfig.name}
+          {siteConfiq.name}
         </h1>
         <p className="mx-auto mt-4 max-w-3xl text-base">
-          {siteConfig.description}
+          {siteConfiq.description}
         </p>
       </div>
       <div>
