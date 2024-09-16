@@ -7,7 +7,7 @@ export function MainNav() {
       <Link href="/" className="flex items-center space-x-2">
         <div className="relative md:w-[50px] md:h-[50px] w-[40px] h-[40px]">
           <Image
-            src="/icons8-shopping-bag-64.png"
+            src="/clothinglogo.png"
             alt="Logo"
             fill
             className="object-contain"
@@ -15,7 +15,7 @@ export function MainNav() {
         </div>
 
         <span className="inline-block md:text-xl sm:text-lg text-sm font-bold">
-          Nariman&apos;s Store
+          N&apos;s Clothing
         </span>
       </Link>
     </div>
